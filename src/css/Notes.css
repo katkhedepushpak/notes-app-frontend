@@ -1,0 +1,10 @@
+/* ...existing code... */
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .note-card {
+    flex: 0 0 48%;
+    margin: 1%;
+  }
+}
+
+/* ...existing code... */

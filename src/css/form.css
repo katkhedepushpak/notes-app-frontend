@@ -1,0 +1,64 @@
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+  }
+
+  .tag {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.875rem;
+    color: #495057;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .tag:hover {
+    background-color: #dfe3ea;
+    color: #212529;
+  }
+
+  .tag-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 0.875rem;
+    min-width: 100px;
+  }
+
+  .tag-container:focus-within {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: red;
+    border-color: red;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .form-floating {
+    margin-bottom: 1rem;
+  }
+  
+  .form-check {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }

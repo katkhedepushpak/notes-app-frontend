@@ -1,4 +1,4 @@
-import React, { use, useContext } from "react";
+import React from "react";
 
 const About = () => {
   return (
