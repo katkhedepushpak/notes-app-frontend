@@ -1,16 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import '../css/form.css';
 import notesContext from '../context/notes/notesContext';
 import Notecard from './Notecard';
 import AddNote from './AddNote';
-import Footer from './Footer';
+
+import Alert from './Alert';
+
+
 const Home = () => {
   const noteContext = useContext(notesContext);
-  const { notes, setNotes } = noteContext;
+  const { notes } = noteContext;
   console.log(notes);
 
   return (
     <div>
+        <Alert message="Yayyy"></Alert>
       <div className="d-flex justify-content-between align-items-center my-3">
         <h3>Your Notes</h3>
         <button
@@ -19,7 +23,10 @@ const Home = () => {
           data-bs-toggle="modal"
           data-bs-target="#addNoteModal"
         >
-          New Note +
+         <span className='mx-2'>
+            New Note 
+         </span>
+          <i className="fa-solid fa-square-plus"></i>
         </button>
       </div>
 
@@ -27,7 +34,7 @@ const Home = () => {
         <div className="row my-3 mx-auto">
           {notes.map((note) => {
             return (
-              <div className="col-md-3 mx-3 my-3" key={note.id}>
+              <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-4" key={note._id}>
                 <Notecard note={note} />
               </div>
             );

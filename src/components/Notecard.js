@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import notesContext from '../context/notes/notesContext';
+
 
 const Notecard = ({ note }) => {
   const formattedDate = new Date(note.date).toLocaleString('en-US', {
@@ -9,9 +11,19 @@ const Notecard = ({ note }) => {
     month: 'short',
     year: 'numeric',
   });
+  const context = useContext(notesContext);
+  const { deleteNote } = context;
+  const onDelete = () => {
+    deleteNote(note._id);
+    console.log(note._id);
+    
+    document.querySelector('[data-bs-dismiss="modal"]').click();
+
+
+  };
 
   return (
-    <div>
+    <div className="col-12 col-sm-6 col-md-4 mb-4">
       <div className="card" style={{ width: '18rem' }}>
         <div className="card-body">
           {note.urgency && (
@@ -43,11 +55,11 @@ const Notecard = ({ note }) => {
           >
             <div className="modal-dialog">
               <div className="modal-content">
-                {note.urgency && (
+                <p>{note.urgency && (
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     Urgent
                   </span>
-                )}
+                )} </p>
                 <div className="modal-header">
                   <h1 className="modal-title fs-5" id={`noteModalLabel${note.id}`}>
                     {note.title}
@@ -66,17 +78,18 @@ const Notecard = ({ note }) => {
                 <div className="modal-footer">
                   <button
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-warning"
                     data-bs="modal"
                   >
-                    Edit
+                    Edit <i className="fa-solid fa-pen-to-square"></i>
                   </button>
                   <button
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-warning"
                     data-bs="modal"
+                    onClick={onDelete}
                   >
-                    Delete
+                    Delete <i className="fa-solid fa-trash-can"></i>
                   </button>
                   
                   
